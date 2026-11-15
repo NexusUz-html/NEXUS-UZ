@@ -1,0 +1,611 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS_UZ | Gaming</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080b14;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background: #0d1220;
+    border-bottom: 1px solid #17243a;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: #00e5ff;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    color: #c4ccda;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #00e5ff;
+}
+
+.hero {
+    min-height: 410px;
+    padding: 90px 8%;
+    background:
+    radial-gradient(ellipse at 80% 50%, #123b65 0%, transparent 55%),
+    linear-gradient(120deg, #10192b, #080b14);
+}
+
+.hero h1 {
+    font-size: clamp(38px, 8vw, 65px);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    color: #00e5ff;
+}
+
+.hero p {
+    color: #aab6c9;
+    margin-top: 20px;
+    max-width: 480px;
+    line-height: 1.7;
+}
+
+.main-btn {
+    display: inline-block;
+    background: #00d9ff;
+    color: #06101b;
+    padding: 14px 25px;
+    border-radius: 7px;
+    margin-top: 27px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.main-btn:hover {
+    background: white;
+}
+
+.stats {
+    display: flex;
+    gap: 35px;
+    margin-top: 35px;
+}
+
+.stats h2 {
+    color: #00e5ff;
+}
+
+.stats p {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+section {
+    padding: 55px 7%;
+}
+
+.section-title {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+.section-title span {
+    color: #00e5ff;
+}
+
+.search-box {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #253750;
+    background: #101827;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.search-box:focus {
+    border-color: #00e5ff;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filter-btn {
+    padding: 10px 17px;
+    border: 1px solid #26364e;
+    background: #101827;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #00d9ff;
+    color: #07111b;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: #101827;
+    border: 1px solid #1c2c42;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    border-color: #00e5ff;
+}
+
+.game-image {
+    height: 155px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    background: linear-gradient(135deg, #102c4d, #18203c);
+}
+
+.game-info {
+    padding: 18px;
+}
+
+.game-info h3 {
+    margin-bottom: 9px;
+}
+
+.game-info p {
+    color: #a5b0c2;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.game-info button {
+    width: 100%;
+    margin-top: 17px;
+    padding: 11px;
+    background: #00d9ff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.game-info button:hover {
+    background: white;
+}
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.news-card {
+    background: #101827;
+    border: 1px solid #24334b;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.news-card .emoji {
+    font-size: 32px;
+}
+
+.news-card h3 {
+    margin: 15px 0 10px;
+}
+
+.news-card p {
+    color: #a5b0c2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.about {
+    background: #0d1422;
+    text-align: center;
+}
+
+.about p {
+    color: #aab6c9;
+    max-width: 650px;
+    margin: 15px auto;
+    line-height: 1.8;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #8592a6;
+    font-size: 13px;
+    border-top: 1px solid #1b293c;
+}
+
+footer span {
+    color: #00e5ff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #000c;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #111c2e;
+    border: 1px solid #00e5ff;
+    padding: 28px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #00e5ff;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #c0ccdc;
+    line-height: 1.6;
+}
+
+.close {
+    float: right;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.no-result {
+    color: #aab6c9;
+    text-align: center;
+    padding: 30px;
+    display: none;
+}
+
+@media(max-width:600px) {
+    header {
+        padding: 16px;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    nav {
+        gap: 13px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 65px 7%;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    .stats {
+        gap: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">NEXUS<span>_UZ</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#news">News</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+    <h1>ENTER THE<br>
+    <span>NEXUS WORLD</span></h1>
+
+    <p>
+        Welcome to NEXUS_UZ.
+        Discover games, explore the gaming world
+        and find your next adventure.
+    </p>
+
+    <a href="#games" class="main-btn">EXPLORE GAMES →</a>
+
+    <div class="stats">
+        <div>
+            <h2>04+</h2>
+            <p>GAMES</p>
+        </div>
+        <div>
+            <h2>24/7</h2>
+            <p>GAMING</p>
+        </div>
+        <div>
+            <h2>UZ</h2>
+            <p>COMMUNITY</p>
+        </div>
+    </div>
+</div>
+
+<!-- GAMES -->
+
+<section id="games">
+    <h2 class="section-title">
+        POPULAR <span>GAMES</span>
+    </h2>
+
+    <input
+        type="text"
+        id="search"
+        class="search-box"
+        placeholder="🔍 Search games..."
+    >
+
+    <div class="filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="battle">Battle</button>
+        <button class="filter-btn" data-category="adventure">Adventure</button>
+        <button class="filter-btn" data-category="action">Action</button>
+    </div>
+
+    <div class="games" id="gamesList">
+
+        <div class="game-card" data-category="battle" data-name="pubg mobile">
+            <div class="game-image">🎯</div>
+            <div class="game-info">
+                <h3>PUBG Mobile</h3>
+                <p>Enter the battlefield and test your skills.</p>
+                <button onclick="showGame('PUBG Mobile','A popular battle royale game. Fight, survive and become the winner!')">VIEW GAME</button>
+            </div>
+        </div>
+
+        <div class="game-card" data-category="adventure" data-name="minecraft">
+            <div class="game-image">⛏️</div>
+            <div class="game-info">
+                <h3>Minecraft</h3>
+                <p>Build your world and explore new adventures.</p>
+                <button onclick="showGame('Minecraft','Explore, build and create your own amazing world.')">VIEW GAME</button>
+            </div>
+        </div>
+
+        <div class="game-card" data-category="action" data-name="gta v">
+            <div class="game-image">🚘</div>
+            <div class="game-info">
+                <h3>GTA V</h3>
+                <p>Explore a huge open-world city.</p>
+                <button onclick="showGame('GTA V','Discover an open-world action adventure.')">VIEW GAME</button>
+            </div>
+        </div>
+
+        <div class="game-card" data-category="battle" data-name="free fire">
+            <div class="game-image">🔥</div>
+            <div class="game-info">
+                <h3>Free Fire</h3>
+                <p>Fast matches and exciting battles.</p>
+                <button onclick="showGame('Free Fire','Enjoy fast-paced battle royale gameplay.')">VIEW GAME</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="no-result" id="noResult">
+        No games found!
+    </div>
+</section>
+
+<!-- NEWS -->
+
+<section id="news">
+    <h2 class="section-title">
+        GAMING <span>NEWS</span>
+    </h2>
+
+    <div class="news">
+
+        <div class="news-card">
+            <div class="emoji">🎮</div>
+            <h3>Gaming World</h3>
+            <p>Explore new games and discover your favorite gaming experiences.</p>
+        </div>
+
+        <div class="news-card">
+            <div class="emoji">🚀</div>
+            <h3>New Adventures</h3>
+            <p>Find exciting worlds, challenges and adventures.</p>
+        </div>
+
+        <div class="news-card">
+            <div class="emoji">⚡</div>
+            <h3>NEXUS Updates</h3>
+            <p>Stay tuned for future updates on NEXUS_UZ.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+    <h2 class="section-title">
+        ABOUT <span>NEXUS</span>
+    </h2>
+
+    <p>
+        NEXUS_UZ is a gaming website created for gamers.
+        Our mission is to explore the gaming universe,
+        discover amazing games and build a gaming community.
+    </p>
+
+    <h2 style="color:#00e5ff;margin-top:25px;">
+        YOUR GAME. YOUR WORLD. YOUR NEXUS.
+    </h2>
+</section>
+
+<footer>
+    © 2026 <span>NEXUS_UZ.COM</span> | All Rights Reserved.
+    <p style="margin-top:8px;">Created with HTML, CSS & JavaScript</p>
+</footer>
+
+<!-- GAME MODAL -->
+
+<div class="modal" id="gameModal">
+    <div class="modal-content">
+        <button class="close" onclick="closeGame()">×</button>
+        <h2 id="modalTitle">Game</h2>
+        <p id="modalDescription"></p>
+        <button class="main-btn" onclick="closeGame()">GOT IT</button>
+    </div>
+</div>
+
+<script>
+
+// SEARCH
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".game-card");
+const noResult = document.getElementById("noResult");
+
+let activeCategory = "all";
+
+function filterGames() {
+    let query = search.value.toLowerCase();
+    let visible = 0;
+
+    cards.forEach(card => {
+        let name = card.dataset.name;
+        let category = card.dataset.category;
+
+        let matchesSearch = name.includes(query);
+        let matchesCategory =
+            activeCategory === "all" ||
+            category === activeCategory;
+
+        if (matchesSearch && matchesCategory) {
+            card.style.display = "block";
+            visible++;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    noResult.style.display = visible === 0 ? "block" : "none";
+}
+
+search.addEventListener("input", filterGames);
+
+// FILTER BUTTONS
+document.querySelectorAll(".filter-btn").forEach(button => {
+    button.addEventListener("click", () => {
+
+        document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        activeCategory = button.dataset.category;
+        filterGames();
+    });
+});
+
+// GAME MODAL
+function showGame(title, description) {
+    document.getElementById("modalTitle").textContent = title;
+
+    document.getElementById("modalDescription")
+    .textContent = description;
+
+    document.getElementById("gameModal").style.display = "flex";
+}
+
+function closeGame() {
+    document.getElementById("gameModal").style.display = "none";
+}
+
+// CLOSE WHEN CLICKING OUTSIDE
+document.getElementById("gameModal")
+.addEventListener("click", function(event) {
+    if (event.target === this) {
+        closeGame();
+    }
+});
+
+</script>
+
+</body>
+</html>
